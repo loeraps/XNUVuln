@@ -18,10 +18,10 @@ jobs:
     
     - name: Build
       run: |
-          xcodebuild clean build -workspace XNUVuln.xcworkspace -scheme "XNUVuln"
+          xcodebuild clean build -project XNUVuln.xcodeproj -scheme "XNUVuln"
     - name: Archive
       run: |
-          xcodebuild -workspace XNUVuln.xcworkspace -scheme "XNUVuln" -archivePath $PWD/build/XNUVuln.xcarchive clean archive | xcpretty -c
+          xcodebuild -project XNUVuln.xcodeproj -scheme "XNUVuln"
     - name: Generate ipa
       run: |
         xcodebuild -exportArchive -exportOptionsPlist ./distribution-files/production-ci.plist -archivePath $PWD'/build/XNUVuln.xcarchive' -exportPath build | xcpretty -c
