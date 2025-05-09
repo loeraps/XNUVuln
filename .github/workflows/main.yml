@@ -52,7 +52,7 @@ jobs:
       run: |
         xcodebuild -exportArchive -exportOptionsPlist ./distribution-files/production-ci.plist -archivePath $PWD'/build/MeuProjeto.xcarchive' -exportPath build | xcpretty -c
     - name: 'Upload Artifact'
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: MeuProjeto.ipa
         path: build/MeuProjeto.ipa
